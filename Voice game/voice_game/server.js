@@ -2,6 +2,13 @@ const express=require('express');
 const app=express();
 const http    = require('http')
 const server  = http.createServer(app)
+const ss = require('socket.io-stream');
+// load all the libraries for the Dialogflow part
+const uuid = require('uuid');
+const util = require('util');
+const { Transform, pipeline } = require('stream');
+const pump = util.promisify(pipeline);
+const df = require('dialogflow').v2beta1;
 
 
 app.use(express.static('public'));
@@ -13,7 +20,8 @@ app.get('/',(req,res)=>{
 
 const io  = require('socket.io')(server);
 io.on('connection',socket=>{
-	socket.on('message',(files)=>{
+	var authToken="abcd";
+	socket.on('message',files=>{
 
 		var audioFileStream = fs.createReadStream(files.audio);
         var params={
@@ -26,8 +34,8 @@ io.on('connection',socket=>{
 				  },
 				  qs: params,
 				  json: true,
-				};
-        }
+		 };
+        
 		const responses = {
 		  400: 'Bad Request! Please refer docs for correct input fields.',
 		  401: 'Unauthorized. Please generate a new access token.',
@@ -45,6 +53,8 @@ io.on('connection',socket=>{
 		  var theresponse=response.body;
 		  socket.emit('audioresult',theresponse);
 		}));
+	};
+
 
 })
 server.listen(process.env.PORT || 8000);
