@@ -46,5 +46,8 @@ h1{
     margin-top: 8%;
     animation-name: fadeIn;
     animation-duration: 5s;
-
+}
+p{
+    animation-name: fadeIn;
+    animation-duration: 2s;
 }
