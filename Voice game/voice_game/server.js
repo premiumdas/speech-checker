@@ -53,7 +53,7 @@ io.on('connection',socket=>{
 		  var theresponse=response.body;
 		  socket.emit('audioresult',theresponse);
 		}));
-	};
+	});
 
 
 })
