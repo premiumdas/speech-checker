@@ -1,25 +1,26 @@
-body{
-    /* background-image: url("./background.jpg"); */
-    background-color: rgb(34, 36, 56);
-}
 #main{
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    background-color: rgb(34, 36, 56);
+    /* background-color: rgb(34, 36, 56); */
     color: white;
+    font-family: 'Oxygen', sans-serif;
+    background: rgb(2,0,36);
+    background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(34,36,56,1) 55%, rgba(8,89,106,1) 100%);
 }
 #side-panel{
     text-align: center;
     display:flex;
     flex-direction: column;
     padding: 10px;
-    width: 15%;
+    width: 20%;
     justify-content: space-evenly;
     margin-right: 10px;
-    background-color: rgb(200, 221, 14);
+    background-color: rgb(77, 184, 169);
     height: 100vh;
     opacity: 0.8;
+    animation:slideInLeft;
+    animation-duration: 1.2s;
 }
 #side-panel ul li{
     list-style:none;
@@ -28,5 +29,22 @@ body{
     display: inline-block;
     padding: 5%;
     width:max-content;
-    
+}
+#content{
+    margin: 5%;
+}
+h1{
+    font-size: 150%;
+    text-align: center;
+    animation: fadeIn 2s;
+}
+#intro{
+    margin-top: 8%;
+    animation: fadeIn 4s;
+}
+#instructions{
+    margin-top: 8%;
+    animation-name: fadeIn;
+    animation-duration: 5s;
+
 }
