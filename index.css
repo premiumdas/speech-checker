@@ -1,0 +1,26 @@
+#main{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+   
+}
+#side-panel{
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 15%;
+    justify-content: space-evenly;
+    margin-right: 10px;
+    background-color: cadetblue;
+    height: 100vh;
+}
+#side-panel ul li{
+    list-style:none;
+}
+#side-panel a{
+    display: inline-block;
+    padding: 5%;
+    width:max-content;
+    
+}
